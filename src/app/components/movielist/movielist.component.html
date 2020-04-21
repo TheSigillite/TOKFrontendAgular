@@ -4,5 +4,9 @@
     <img [src]="movie.cover" alt="img broke, fixz it" class="card-img image">
     <p class="card-text director">Director: {{movie.director}}</p>
     <p class="card-text premiere">Premiered: {{movie.premiere}}</p>
+    <div class="row" *ngIf="isAdmin.admin===true">
+      <button class="col-md" (click)="this.deletemovie(movie.movie_id)">Delete</button>
+      <button class="col-md"> Edit </button>
+    </div>
   </div>
 </div>

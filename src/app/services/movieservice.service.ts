@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpRequest} from '@angular/common/http';
 
 @Injectable()
 export class MovieserviceService {
   private url = 'http://localhost:8080/movies';
+  private deleteurl = 'http://localhost:8080/movies/delete'
   constructor(private http: HttpClient) { }
 
   getAll(){
@@ -15,5 +16,9 @@ export class MovieserviceService {
 
   editMovie(editmovie: any){
     return this.http.put(this.url + '/update', editmovie);
+  }
+
+  deleteMovie(deleteLoad: any){
+    return this.http.request('delete', this.deleteurl , { body: deleteLoad });
   }
 }
