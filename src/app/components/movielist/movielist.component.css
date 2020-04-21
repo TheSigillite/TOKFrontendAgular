@@ -1,0 +1,21 @@
+.item {
+  align-self: center;
+  align-items: center;
+  align-content: center;
+}
+.title {
+  font-size: xx-large;
+  text-align: center;
+}
+.director {
+  font-size: xx-large;
+  text-align: center;
+}
+.premiere {
+  font-size: xx-large;
+  text-align: center;
+}
+.image {
+  width: 25%;
+  align-self: center;
+}
