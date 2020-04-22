@@ -7,7 +7,16 @@
       <input type="text" [(ngModel)]="passwd" name="passwd" placeholder="password"/>
     </div>
     <div class="col-sm">
-      <button (click)="onSubmit()" > Login</button>
+      <button (click)="onSubmit()" class="btn btn-outline-secondary"> Login</button>
+    </div>
+    <div *ngIf="isAdmin.admin" class="col-sm">
+      <div ngbDropdown class="d-inline-block">
+        <button class="btn btn-outline-primary" id="dropdown1" ngbDropdownToggle>Actions</button>
+        <div ngbDropdownMenu aria-labelledby="dropdown1">
+          <button ngbDropdownItem>Add New Movie</button>
+          <button ngbDropdownItem>Add Moderator</button>
+        </div>
+      </div>
     </div>
     <div>
       <p>{{youexist}}</p>

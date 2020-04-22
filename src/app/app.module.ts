@@ -7,22 +7,32 @@ import { MovielistComponent } from './components/movielist/movielist.component';
 import { HttpClientModule } from '@angular/common/http';
 import {MovieserviceService} from './services/movieservice.service';
 import { UserbarComponent } from './components/userbar/userbar.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {UserhttpService} from './services/userhttp.service';
+import { EditmovieComponent } from './components/editmovie/editmovie.component';
+import {StorageserviceService} from './services/storageservice.service';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { AddmovieComponent } from './components/addmovie/addmovie.component';
+import { MoviereviewsComponent } from './components/moviereviews/moviereviews.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MovielistComponent,
-    UserbarComponent
+    UserbarComponent,
+    EditmovieComponent,
+    AddmovieComponent,
+    MoviereviewsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    NgbModule
   ],
-  providers: [MovieserviceService, UserhttpService],
+  providers: [MovieserviceService, UserhttpService, StorageserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

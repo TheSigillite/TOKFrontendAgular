@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieserviceService } from '../../services/movieservice.service';
+import { Router } from '@angular/router';
+import { StorageserviceService } from '../../services/storageservice.service';
 
 @Component({
   selector: 'app-movielist',
@@ -9,7 +11,7 @@ import { MovieserviceService } from '../../services/movieservice.service';
 export class MovielistComponent implements OnInit {
   public movies$: any;
   isAdmin: any;
-  constructor(private movieService: MovieserviceService) { }
+  constructor(private movieService: MovieserviceService, private route: Router, private storage: StorageserviceService) { }
 
   ngOnInit(): void {
     this.isAdmin = JSON.parse(localStorage.getItem('ismod'));
@@ -18,7 +20,7 @@ export class MovielistComponent implements OnInit {
   }
 
   getAllMovies(){
-    this.movieService.getAll().subscribe(response =>{
+    this.movieService.getAll().subscribe(response => {
       this.movies$ = response;
     });
   }
@@ -31,5 +33,15 @@ export class MovielistComponent implements OnInit {
       movie_id: movieid}).subscribe(response => {
         console.log(response);
     });
+  }
+
+  editmovie( movieid: number ){
+    for (let movie of this.movies$){
+      if (movie.movie_id === movieid){
+        this.storage.setItem(movie);
+        console.log(movie);
+      }
+    }
+    this.route.navigateByUrl('/movies/new');
   }
 }

@@ -1,0 +1,42 @@
+
+  <div class="align-items-center row">
+    <div class="col-lg align-content-center card">
+    <p class="card-header aligner">
+      <label>
+        movie id:
+        <input type="number" [(ngModel)]="movie.movie_id" readonly>
+      </label>
+    </p>
+    <p class="card-header aligner">
+      <label>
+        Title:
+        <input type="text" [(ngModel)]="movie.title">
+      </label>
+    </p>
+    <p class="card-header aligner">
+      <label>
+        Image link:
+        <input type="text" [(ngModel)]="movie.cover">
+      </label>
+    </p>
+    <p class="card-header aligner">
+      <label>
+        Director:
+        <input type="text" [(ngModel)]="movie.director">
+      </label>
+    </p>
+    <p class="card-header aligner">
+      <label>
+        Premiere Year:
+        <input type="number" [(ngModel)]="movie.premiere">
+      </label>
+    </p>
+    <p class="card-header aligner">
+      <button (click)="sendEdit()">Submit</button>
+    </p>
+    </div>
+    <div class="col-sm">
+      <label style="font-size: xx-large">Cover Preview</label>
+      <img [src]="movie.cover" width="20%" alt="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg">
+    </div>
+  </div>

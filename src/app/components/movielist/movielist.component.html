@@ -6,7 +6,7 @@
     <p class="card-text premiere">Premiered: {{movie.premiere}}</p>
     <div class="row" *ngIf="isAdmin.admin===true">
       <button class="col-md" (click)="this.deletemovie(movie.movie_id)">Delete</button>
-      <button class="col-md"> Edit </button>
+      <button class="col-md" (click)="editmovie(movie.movie_id)"> Edit </button>
     </div>
   </div>
 </div>
