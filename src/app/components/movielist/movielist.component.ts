@@ -42,6 +42,6 @@ export class MovielistComponent implements OnInit {
         console.log(movie);
       }
     }
-    this.route.navigateByUrl('/movies/new');
+    this.route.navigateByUrl('/movies/edit');
   }
 }

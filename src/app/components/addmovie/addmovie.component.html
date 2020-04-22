@@ -1,1 +1,26 @@
-<p>addmovie works!</p>
+<div class="align-items-center row">
+  <div class="col-lg align-content-center card">
+    <p class="align-self-center card-header">
+      <input type="text" [(ngModel)]="title" class="input-group-text" placeholder="Title">
+    </p>
+    <p class="align-self-center card-header">
+      <input type="text" [(ngModel)]="cover" class="input-group-text" placeholder="Cover Link">
+    </p>
+    <p class="align-self-center card-header">
+      <input type="text" [(ngModel)]="director" class="input-group-text" placeholder="Direcitor">
+    </p>
+    <p class="align-self-center card-header">
+      <input type="number" [(ngModel)]="premiere" class="input-group-text" placeholder="Premiere Year">
+    </p>
+    <p class="align-self-center card-header">
+      <button (click)="movieAdd()" class="btn btn-outline-primary">Add Movie</button>
+    </p>
+    <p class="align-self-center text-center text-info">
+      {{status}}
+    </p>
+  </div>
+  <div class="col-sm">
+    <label style="font-size: xx-large">Cover Preview</label>
+    <img [src]="cover" width="30%" alt="Not a valid image link">
+  </div>
+</div>

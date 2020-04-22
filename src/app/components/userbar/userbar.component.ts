@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UserhttpService} from '../../services/userhttp.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-userbar',
@@ -11,7 +12,7 @@ export class UserbarComponent implements OnInit {
    passwd: string;
    isAdmin: any;
    youexist: string;
-  constructor(private userhttp: UserhttpService) { }
+  constructor(private userhttp: UserhttpService, private router: Router) { }
 
   ngOnInit(): void {
     this.login = localStorage.getItem('movieslogin');
@@ -36,7 +37,14 @@ export class UserbarComponent implements OnInit {
       else {
         this.youexist = 'Wrong username or password';
       }
+    }, error => {
+      let err: any = error;
+      this.youexist = err.details;
     });
+  }
+
+  goToNewMovie(){
+    this.router.navigateByUrl('/movies/new');
   }
 
 }

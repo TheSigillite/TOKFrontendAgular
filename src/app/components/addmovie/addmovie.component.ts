@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MovieserviceService} from '../../services/movieservice.service';
 
 @Component({
   selector: 'app-addmovie',
@@ -6,10 +7,41 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./addmovie.component.css']
 })
 export class AddmovieComponent implements OnInit {
-
-  constructor() { }
+  title: string;
+  cover: string;
+  director: string;
+  premiere: number;
+  status: string;
+  constructor(private movieser: MovieserviceService) { }
 
   ngOnInit(): void {
+  }
+
+  movieAdd(){
+    console.log({
+      login: localStorage.getItem('movieslogin'),
+      passwd: localStorage.getItem('moviespass'),
+      title: this.title,
+      cover: this.cover,
+      director: this.director,
+      premiere: this.premiere
+    });
+    this.movieser.addMovie({
+      login: localStorage.getItem('movieslogin'),
+      passwd: localStorage.getItem('moviespass'),
+      title: this.title,
+      cover: this.cover,
+      director: this.director,
+      premiere: this.premiere
+    }).subscribe(response =>{
+      let r: any = response;
+      console.log(r);
+      this.status = r.details;
+    }, error => {
+      let err: any = error;
+      console.log(err);
+      this.status = err.details;
+    });
   }
 
 }
