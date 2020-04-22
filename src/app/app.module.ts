@@ -14,6 +14,7 @@ import {StorageserviceService} from './services/storageservice.service';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AddmovieComponent } from './components/addmovie/addmovie.component';
 import { MoviereviewsComponent } from './components/moviereviews/moviereviews.component';
+import {ReviewserviceService} from './services/reviewservice.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { MoviereviewsComponent } from './components/moviereviews/moviereviews.co
     ReactiveFormsModule,
     NgbModule
   ],
-  providers: [MovieserviceService, UserhttpService, StorageserviceService],
+  providers: [MovieserviceService, UserhttpService, StorageserviceService, ReviewserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

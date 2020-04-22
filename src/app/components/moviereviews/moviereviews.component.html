@@ -1,1 +1,16 @@
-<p>moviereviews works!</p>
+<div class="row">
+  <div class="col-5 card">
+    <p class="card-header text-center">{{reviewdmovie.title}}</p>
+    <img [src]="reviewdmovie.cover" width="35%" class="embed-responsive card-img">
+    <p class="card-body">Director: {{reviewdmovie.director}}</p>
+    <p class="card-body">Premiered: {{reviewdmovie.premiere}}</p>
+  </div>
+  <div class="col-lg">
+    <div class="row" *ngFor="let review of reviews">
+      <div class="card">
+        <p class="card-header">{{review.login}}</p>
+        <p class="card-text">{{review.rev}}</p>
+      </div>
+    </div>
+  </div>
+</div>

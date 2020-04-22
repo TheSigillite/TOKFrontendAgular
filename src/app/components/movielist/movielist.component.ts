@@ -44,4 +44,9 @@ export class MovielistComponent implements OnInit {
     }
     this.route.navigateByUrl('/movies/edit');
   }
+
+  goToReviews( movie: any ){
+    this.storage.setItem(movie);
+    this.route.navigate(['/movies', movie.movie_id]);
+  }
 }
