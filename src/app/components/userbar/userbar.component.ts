@@ -45,8 +45,24 @@ export class UserbarComponent implements OnInit {
       }
     }, error => {
       const err: any = error;
+      if(err.status === 404){
+        window.alert('Wrong password or username');
+      } else {
+        window.alert('Unexpected error. Contact modera')
+      }
       this.youexist = err.details;
     });
+  }
+
+  logout(){
+    localStorage.removeItem('movieslogin');
+    localStorage.removeItem('moviespass');
+    localStorage.removeItem('ismod');
+    window.location.reload();
+  }
+
+  register(){
+
   }
 
   goToNewMovie(){

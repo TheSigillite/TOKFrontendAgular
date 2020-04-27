@@ -13,4 +13,8 @@ export class UserhttpService {
     console.log('sedning ' + JSON.stringify(tosend));
     return this.http2.post<any>(this.url + '/login', user);
   }
+
+  register(newuser: User){
+    return this.http2.post<any>(this.url+ '/register', newuser);
+  }
 }

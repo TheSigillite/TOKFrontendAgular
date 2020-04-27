@@ -15,6 +15,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AddmovieComponent } from './components/addmovie/addmovie.component';
 import { MoviereviewsComponent } from './components/moviereviews/moviereviews.component';
 import {ReviewserviceService} from './services/reviewservice.service';
+import { RegisteruserComponent } from './components/registeruser/registeruser.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {ReviewserviceService} from './services/reviewservice.service';
     UserbarComponent,
     EditmovieComponent,
     AddmovieComponent,
-    MoviereviewsComponent
+    MoviereviewsComponent,
+    RegisteruserComponent
   ],
   imports: [
     BrowserModule,
