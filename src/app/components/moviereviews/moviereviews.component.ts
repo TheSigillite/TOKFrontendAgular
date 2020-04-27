@@ -11,19 +11,58 @@ import {StorageserviceService} from '../../services/storageservice.service';
 export class MoviereviewsComponent implements OnInit {
   reviewdmovie: any;
   reviews: any;
-  movieid: number;
+  rev: string;
+  isadm: any;
+  login: string;
   constructor(private aroute: ActivatedRoute, private rservice: ReviewserviceService, private sservice: StorageserviceService) { }
 
   ngOnInit(): void {
-    // TODO: there is a bug during reloading. Switch to localstorage?
-    this.aroute.params.subscribe(param => {
-      this.movieid = param.id;
-    });
-    this.reviewdmovie = this.sservice.getItem();
-    this.rservice.getreviews(this.movieid).subscribe(response => {
+    window.scroll(0, 0);
+    this.reviewdmovie = JSON.parse(localStorage.getItem('movie'));
+    try{
+      this.login = localStorage.getItem('movieslogin');
+      this.isadm = JSON.parse(localStorage.getItem('ismod'));
+    }catch (e) {
+      if (e instanceof TypeError){
+        this.isadm = undefined;
+        this.login = undefined;
+      }
+    }
+
+    this.rservice.getreviews(this.reviewdmovie.movie_id).subscribe(response => {
       this.reviews = response;
       console.log(this.reviews);
     }, error => console.log(error));
   }
 
+  submitNewReview(){
+    this.rservice.newreview({
+      login: localStorage.getItem('movieslogin'),
+      passwd: localStorage.getItem('moviespass'),
+      movie_id: this.reviewdmovie.movie_id,
+      rev: this.rev
+    }).subscribe(response => {
+      let res: any = response;
+      window.alert(res.details);
+    }, error => {
+      let err: any = error;
+      window.alert(err.details);
+    });
+  }
+
+  deleteReview(revi: string){
+    this.rservice.deletereview({
+      login: localStorage.getItem('movieslogin'),
+      passwd: localStorage.getItem('moviespass'),
+      movie_id: this.reviewdmovie.movie_id,
+      rev: revi
+    }).subscribe(response =>{
+      let r: any = response;
+      window.alert(r.details);
+      window.location.reload();
+    }, error => {
+      let er: any = error;
+      window.alert(er.details);
+    });
+  }
 }

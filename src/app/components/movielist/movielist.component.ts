@@ -46,7 +46,7 @@ export class MovielistComponent implements OnInit {
   }
 
   goToReviews( movie: any ){
-    this.storage.setItem(movie);
+    localStorage.setItem('movie', JSON.stringify(movie));
     this.route.navigate(['/movies', movie.movie_id]);
   }
 }

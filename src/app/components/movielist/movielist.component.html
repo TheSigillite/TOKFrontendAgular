@@ -5,7 +5,7 @@
     <p class="card-text director">Director: {{movie.director}}</p>
     <p class="card-text premiere">Premiered: {{movie.premiere}}</p>
     <button class="btn btn-info card-footer" (click)="goToReviews(movie)">See The Reviews...</button>
-    <div class="row" *ngIf="isAdmin.admin===true">
+    <div class="row" *ngIf="isAdmin != undefined && isAdmin.admin===true">
       <button class="col-md" (click)="this.deletemovie(movie.movie_id)">Delete</button>
       <button class="col-md" (click)="editmovie(movie.movie_id)"> Edit </button>
     </div>

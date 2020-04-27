@@ -17,8 +17,14 @@ export class UserbarComponent implements OnInit {
   ngOnInit(): void {
     this.login = localStorage.getItem('movieslogin');
     this.passwd = localStorage.getItem('moviespass');
-    this.isAdmin = JSON.parse(localStorage.getItem('ismod'));
-    if (this.login !== undefined){
+    try{
+      this.isAdmin = JSON.parse(localStorage.getItem('ismod'));
+    }
+    catch (e) {
+      this.isAdmin.admin = undefined;
+      this.youexist = 'You are not logged in';
+    }
+    if (this.login !== null && this.login !== undefined){
       this.youexist = 'Logged in as ' + this.login;
     }
   }
@@ -38,7 +44,7 @@ export class UserbarComponent implements OnInit {
         this.youexist = 'Wrong username or password';
       }
     }, error => {
-      let err: any = error;
+      const err: any = error;
       this.youexist = err.details;
     });
   }
