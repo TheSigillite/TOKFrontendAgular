@@ -12,7 +12,7 @@ const routes: Routes = [
   {path: 'movies/new', component: AddmovieComponent},
   {path: 'movies/:id', component: MoviereviewsComponent},
   {path: 'register', component: RegisteruserComponent},
-  {path: '', redirectTo: '/movies'}
+  {path: '', redirectTo: '/movies', pathMatch: 'full'}
 ];
 
 @NgModule({

@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MovielistComponent } from './components/movielist/movielist.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MovieserviceService} from './services/movieservice.service';
 import { UserbarComponent } from './components/userbar/userbar.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -18,6 +19,8 @@ import {ReviewserviceService} from './services/reviewservice.service';
 import { RegisteruserComponent } from './components/registeruser/registeruser.component';
 import { MakemodComponent } from './components/makemod/makemod.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -32,12 +35,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatInputModule,
+    MatDialogModule
   ],
   providers: [MovieserviceService, UserhttpService, StorageserviceService, ReviewserviceService],
   bootstrap: [AppComponent]

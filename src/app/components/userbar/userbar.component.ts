@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {UserhttpService} from '../../services/userhttp.service';
 import { Router } from '@angular/router';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MakemodComponent} from '../makemod/makemod.component';
+
 
 @Component({
   selector: 'app-userbar',
@@ -12,7 +15,7 @@ export class UserbarComponent implements OnInit {
    passwd: string;
    isAdmin: any;
    youexist: string;
-  constructor(private userhttp: UserhttpService, private router: Router) { }
+  constructor(private userhttp: UserhttpService, private router: Router, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.login = localStorage.getItem('movieslogin');
@@ -61,8 +64,14 @@ export class UserbarComponent implements OnInit {
     window.location.reload();
   }
 
-  register(){
-
+  modUser(){
+    const dialogRef = this.dialog.open(MakemodComponent,{
+      width: '50%',
+      data: {
+        login: this.login,
+        passwd: this.passwd
+      }
+    });
   }
 
   goToNewMovie(){

@@ -1,0 +1,19 @@
+<h1 mat-dialog-title class="card-header"> Adding Moderator </h1>
+<div mat-dialog-content class="card">
+  <input matInput  [(ngModel)]="usr" class="input-group" placeholder="User to become moderator">
+</div>
+<div mat-dialog-actions>
+  <div *ngIf="usure!=undefined && !usure">
+    <button mat-button class="btn btn-danger" (click)="onDismiss()">Cancel</button>
+    <button mat-button class="btn btn-primary" (click)="confirm()"> Mod User </button>
+  </div>
+  <div *ngIf="usure!=undefined && usure" mat-dialog-actions>
+    {{response}}
+    <button mat-button class="btn btn-primary" (click)="onCommit()">Yes</button>
+    <button mat-button class="btn btn-danger" (click)="onDismiss()">No</button>
+  </div>
+  <div *ngIf="success!=undefined && success" mat-dialog-actions>
+    <h5>{{response}}</h5>
+    <button mat-button class="btn btn-primary" (click)="onDismiss()">Ok</button>
+  </div>
+</div>
