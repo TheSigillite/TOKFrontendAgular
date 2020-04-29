@@ -8,17 +8,17 @@ export class MovieserviceService {
   constructor(private http: HttpClient) { }
 
   getAll(){
-    return this.http.get(this.url + '/all');
+    return this.http.get<any>(this.url + '/all');
   }
   addMovie(newmovie: any){
-    return this.http.post(this.url + '/new', newmovie);
+    return this.http.post<any>(this.url + '/new', newmovie);
   }
 
   editMovie(editmovie: any){
-    return this.http.put(this.url + '/update', editmovie);
+    return this.http.put<any>(this.url + '/update', editmovie);
   }
 
   deleteMovie(deleteLoad: any){
-    return this.http.request('delete', this.deleteurl , { body: deleteLoad });
+    return this.http.request<any>('delete', this.deleteurl , { body: deleteLoad });
   }
 }

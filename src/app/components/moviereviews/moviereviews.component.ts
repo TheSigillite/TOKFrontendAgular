@@ -43,7 +43,7 @@ export class MoviereviewsComponent implements OnInit {
       rev: this.rev
     }).subscribe(response => {
       let res: any = response;
-      window.alert(res.details);
+      window.alert(response.details);
     }, error => {
       let err: any = error;
       window.alert(err.details);
@@ -58,7 +58,7 @@ export class MoviereviewsComponent implements OnInit {
       rev: revi
     }).subscribe(response =>{
       let r: any = response;
-      window.alert(r.details);
+      window.alert(response.details);
       window.location.reload();
     }, error => {
       let er: any = error;

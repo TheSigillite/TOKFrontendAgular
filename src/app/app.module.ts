@@ -16,6 +16,8 @@ import { AddmovieComponent } from './components/addmovie/addmovie.component';
 import { MoviereviewsComponent } from './components/moviereviews/moviereviews.component';
 import {ReviewserviceService} from './services/reviewservice.service';
 import { RegisteruserComponent } from './components/registeruser/registeruser.component';
+import { MakemodComponent } from './components/makemod/makemod.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { RegisteruserComponent } from './components/registeruser/registeruser.co
     EditmovieComponent,
     AddmovieComponent,
     MoviereviewsComponent,
-    RegisteruserComponent
+    RegisteruserComponent,
+    MakemodComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,8 @@ import { RegisteruserComponent } from './components/registeruser/registeruser.co
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    MatFormFieldModule
   ],
   providers: [MovieserviceService, UserhttpService, StorageserviceService, ReviewserviceService],
   bootstrap: [AppComponent]

@@ -36,8 +36,8 @@ export class EditmovieComponent implements OnInit {
       director: this.movie.director,
       premiere: this.movie.premiere
     }).subscribe(response =>{
-      let r: any = response
-      console.log(r.res);
+      let r: any = response;
+      console.log(response.res);
     });
   }
 

@@ -7,14 +7,14 @@ export class ReviewserviceService {
   constructor(private httpclient: HttpClient) { }
 
   getreviews(movieid: number){
-    return this.httpclient.get(this.url + '/get?movieid=' + movieid);
+    return this.httpclient.get<any>(this.url + '/get?movieid=' + movieid);
   }
 
   newreview(review: any){
-    return this.httpclient.post(this.url + '/new', review);
+    return this.httpclient.post<any>(this.url + '/new', review);
   }
 
   deletereview(todelete: any){
-    return this.httpclient.request('delete', this.url + '/delete', { body: todelete});
+    return this.httpclient.request<any>('delete', this.url + '/delete', { body: todelete});
   }
 }

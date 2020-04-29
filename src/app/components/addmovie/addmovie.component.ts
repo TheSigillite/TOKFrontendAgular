@@ -34,9 +34,8 @@ export class AddmovieComponent implements OnInit {
       director: this.director,
       premiere: this.premiere
     }).subscribe(response =>{
-      let r: any = response;
-      console.log(r);
-      this.status = r.details;
+      console.log(response);
+      this.status = response.details;
     }, error => {
       let err: any = error;
       console.log(err);
