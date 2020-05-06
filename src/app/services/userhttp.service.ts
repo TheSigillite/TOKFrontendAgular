@@ -6,7 +6,7 @@ import {Newmod} from '../interfaces/newmod';
 
 @Injectable()
 export class UserhttpService {
-  url = 'http://localhost:8080/users';
+  url = 'https://pwsztokserver.herokuapp.com/users';
   constructor(private http2: HttpClient) {}
 
   login(user: User){

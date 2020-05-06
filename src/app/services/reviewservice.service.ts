@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class ReviewserviceService {
-  url = 'http://localhost:8080/reviews';
+  url = 'https://pwsztokserver.herokuapp.com/reviews';
   constructor(private httpclient: HttpClient) { }
 
   getreviews(movieid: number){

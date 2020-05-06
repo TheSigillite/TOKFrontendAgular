@@ -3,8 +3,8 @@ import {HttpClient, HttpRequest} from '@angular/common/http';
 
 @Injectable()
 export class MovieserviceService {
-  private url = 'http://localhost:8080/movies';
-  private deleteurl = 'http://localhost:8080/movies/delete'
+  private url = 'https://pwsztokserver.herokuapp.com/movies';
+  private deleteurl = 'https://pwsztokserver.herokuapp.com/movies/delete'
   constructor(private http: HttpClient) { }
 
   getAll(){
