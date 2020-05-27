@@ -1,5 +1,10 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpRequest} from '@angular/common/http';
+import { AddMovie } from '../interfaces/add-movie';
+import { EditMovie } from '../interfaces/edit-movie';
+import { DeleteMovie } from '../interfaces/delete-movie';
+import { Movie } from '../interfaces/movie';
+import { ResponseDTO } from '../interfaces/responsedto';
 
 @Injectable()
 export class MovieserviceService {
@@ -8,17 +13,17 @@ export class MovieserviceService {
   constructor(private http: HttpClient) { }
 
   getAll(){
-    return this.http.get<any>(this.url + '/all');
+    return this.http.get<Movie[]>(this.url + '/all');
   }
-  addMovie(newmovie: any){
-    return this.http.post<any>(this.url + '/new', newmovie);
-  }
-
-  editMovie(editmovie: any){
-    return this.http.put<any>(this.url + '/update', editmovie);
+  addMovie(newmovie: AddMovie){
+    return this.http.post<ResponseDTO>(this.url + '/new', newmovie);
   }
 
-  deleteMovie(deleteLoad: any){
-    return this.http.request<any>('delete', this.deleteurl , { body: deleteLoad });
+  editMovie(editmovie: EditMovie){
+    return this.http.put<ResponseDTO>(this.url + '/update', editmovie);
+  }
+
+  deleteMovie(deleteLoad: DeleteMovie){
+    return this.http.request<ResponseDTO>('delete', this.deleteurl , { body: deleteLoad });
   }
 }

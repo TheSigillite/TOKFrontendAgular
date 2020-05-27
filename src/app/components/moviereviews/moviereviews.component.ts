@@ -42,11 +42,10 @@ export class MoviereviewsComponent implements OnInit {
       movie_id: this.reviewdmovie.movie_id,
       rev: this.rev
     }).subscribe(response => {
-      let res: any = response;
       window.alert(response.details);
     }, error => {
       let err: any = error;
-      window.alert(err.details);
+      window.alert(err.error.details);
     });
   }
 
@@ -62,7 +61,7 @@ export class MoviereviewsComponent implements OnInit {
       window.location.reload();
     }, error => {
       let er: any = error;
-      window.alert(er.details);
+      window.alert(er.error.details);
     });
   }
 }
