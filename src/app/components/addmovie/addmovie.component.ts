@@ -18,14 +18,6 @@ export class AddmovieComponent implements OnInit {
   }
 
   movieAdd(){
-    console.log({
-      login: localStorage.getItem('movieslogin'),
-      passwd: localStorage.getItem('moviespass'),
-      title: this.title,
-      cover: this.cover,
-      director: this.director,
-      premiere: this.premiere
-    });
     this.movieser.addMovie({
       login: localStorage.getItem('movieslogin'),
       passwd: localStorage.getItem('moviespass'),
@@ -39,7 +31,7 @@ export class AddmovieComponent implements OnInit {
     }, error => {
       let err: any = error;
       console.log(err);
-      this.status = err.details;
+      this.status = err.error.details;
     });
   }
 

@@ -32,6 +32,7 @@ export class MovielistComponent implements OnInit {
       passwd: localStorage.getItem('moviespass'),
       movie_id: movieid}).subscribe(response => {
         console.log(response);
+        alert(response.details);
     });
   }
 
