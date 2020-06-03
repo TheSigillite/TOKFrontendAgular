@@ -32,7 +32,7 @@ export class MoviereviewsComponent implements OnInit {
     this.rservice.getreviews(this.reviewdmovie.movie_id).subscribe(response => {
       this.reviews = response;
       console.log(this.reviews);
-    }, error => console.log(error));
+    }, error => alert(error.error.details));
   }
 
   submitNewReview(){

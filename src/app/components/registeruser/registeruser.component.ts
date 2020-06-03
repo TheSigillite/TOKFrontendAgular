@@ -22,7 +22,7 @@ export class RegisteruserComponent implements OnInit {
       window.alert(response.details);
       this.routerOutlet.navigateByUrl('/movies');
     }, error => {
-      window.alert(error.details);
+      window.alert(error.error.details);
     });
   }
 
