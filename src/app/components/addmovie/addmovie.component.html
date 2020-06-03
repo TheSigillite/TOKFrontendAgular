@@ -12,7 +12,7 @@
     <p class="align-self-center card-header">
       <input type="number" [(ngModel)]="premiere" class="input-group-text" placeholder="Premiere Year">
     </p>
-    <p class="align-self-center card-header">
+    <p class="align-self-center card-header" *ngIf="title != undefined && cover != undefined && director != undefined && premiere != undefined">
       <button (click)="movieAdd()" class="btn btn-outline-primary">Add Movie</button>
     </p>
     <p class="align-self-center text-center text-info">
